@@ -6,7 +6,7 @@ namespace ClosedXML.Excel
     using System.Collections;
     using System.Linq;
 
-    internal class XLDataValidations : IXLDataValidations
+    public class XLDataValidations : IXLDataValidations
     {
         private readonly List<IXLDataValidation> _dataValidations = new List<IXLDataValidation>();
 
@@ -49,6 +49,11 @@ namespace ClosedXML.Excel
         public void Delete(IXLRange range)
         {
             _dataValidations.RemoveAll(dv => dv.Ranges.Contains(range));
+        }
+
+        public void RemoveAll()
+        {
+            _dataValidations.Clear();
         }
     }
 }
